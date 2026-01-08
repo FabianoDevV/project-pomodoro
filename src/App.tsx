@@ -1,25 +1,53 @@
-import Heading from "./components/Heading";
-
 import "./styles/theme.css";
 import "./styles/GlobalStyle.css";
+
+import Container from "./components/Container";
+import Logo from "./components/Logo";
+import Menu from "./components/Menu";
+import { HistoryIcon, SettingsIcon, SunIcon, TimerIcon } from "lucide-react";
+import CountDown from "./components/CountDown";
 
 export default function App() {
   return (
     <>
-      <Heading text="Hello world">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, qui
-          explicabo consequuntur nihil debitis vero facere porro. Dignissimos
-          dicta iusto, quam quia quasi est quos ratione, at modi officia
-          corrupti!
-        </p>
-      </Heading>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-        ducimus delectus quidem fugit recusandae, totam incidunt! Assumenda
-        quaerat, nemo nobis modi, dolor molestiae impedit earum neque ullam
-        doloremque, enim dolore!
-      </p>
+      <Container>
+        <Logo />
+      </Container>
+
+      <Container>
+        <Menu
+          TimerIcon={<TimerIcon />}
+          HistoryIcon={<HistoryIcon />}
+          SettingsIcon={<SettingsIcon />}
+          SunIcon={<SunIcon />}
+        ></Menu>
+      </Container>
+
+      <Container>
+        <CountDown />
+      </Container>
+
+      <Container>
+        <form action="" className="form">
+          <div className="formRow">
+            <label htmlFor="meuInput">task</label>
+            <input type="text" name="text" id="meuInput" />
+          </div>
+
+          <div className="formRow">
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+
+          <div className="formRow">
+            <p>Ciclos</p>
+            <p>0 0 0 0 0</p>
+          </div>
+
+          <div className="formRow">
+            <button>Enviar</button>
+          </div>
+        </form>
+      </Container>
     </>
   );
 }
