@@ -1,21 +1,22 @@
-import "./styles/theme.css";
-import "./styles/GlobalStyle.css";
+import './styles/theme.css';
+import './styles/GlobalStyle.css';
 
-import Container from "./components/Container";
-import Logo from "./components/Logo";
-import Menu from "./components/Menu";
+import Container from './components/Container';
+import Logo from './components/Logo';
+import Menu from './components/Menu';
 import {
   HistoryIcon,
   PlayCircleIcon,
   SettingsIcon,
   SunIcon,
+  MoonIcon,
   TimerIcon,
-} from "lucide-react";
-import CountDown from "./components/CountDown";
-import DefaultInput from "./components/DefaultInput";
-import Cycles from "./components/Cycles";
-import DefaultButton from "./components/DefaultButton";
-import Footer from "./components/Footer";
+} from 'lucide-react';
+import CountDown from './components/CountDown';
+import DefaultInput from './components/DefaultInput';
+import Cycles from './components/Cycles';
+import DefaultButton from './components/DefaultButton';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
           HistoryIcon={<HistoryIcon />}
           SettingsIcon={<SettingsIcon />}
           SunIcon={<SunIcon />}
+          MoonIcon={<MoonIcon />}
         ></Menu>
       </Container>
 
@@ -40,12 +42,7 @@ export default function App() {
       <Container>
         <form action="" className="form">
           <div className="formRow">
-            <DefaultInput
-              id="meuInput"
-              type="text"
-              labelText="Task"
-              placeholder="Digite algo..."
-            />
+            <DefaultInput id="meuInput" type="text" labelText="Task" placeholder="Digite algo..." />
           </div>
 
           <div className="formRow">
