@@ -50,7 +50,8 @@ export default function Menu({
     <nav className={styles.menu}>
       <ul>
         <li className={styles.menuLink}>
-          <Link to="/">{TimerIcon}</Link>
+          <a href="/">{TimerIcon}</a>
+          {/* <Link to="/">{TimerIcon}</Link> */}
           <a href="#">{HistoryIcon}</a>
           <a href="#">{SettingsIcon}</a>
           <a href="#" onClick={handleThemer}>
