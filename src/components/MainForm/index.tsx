@@ -52,9 +52,26 @@ export default function MainForm() {
         config: { ...prevState.config },
         activeTask: newTask,
         currentCycle: nextCycle,
-        secondsRemaining, // conferir
-        formattteSecondsRemaining: formatSecondsToMinutes(secondsRemaining), // conferir
+        secondsRemaining,
+        formattteSecondsRemaining: formatSecondsToMinutes(secondsRemaining),
         tasks: [...prevState.tasks, newTask],
+      };
+    });
+  }
+
+  function handleInterruptTask() {
+    setState((prevState) => {
+      return {
+        ...prevState,
+        activeTask: null,
+        secondsRemaining: 0,
+        formattteSecondsRemaining: '00:00',
+        tasks: prevState.tasks.map((task) => {
+          if (prevState.activeTask && prevState.activeTask?.id === task.id) {
+            return { ...task, interruptDate: Date.now() };
+          }
+          return task;
+        }),
       };
     });
   }
@@ -82,20 +99,23 @@ export default function MainForm() {
       )}
 
       <div className="formRow">
-        {!state.activeTask ? (
+        {!state.activeTask && (
           <DefaultButton
             aria-label="Iniciar uma nova tarefa"
             title="Iniciar uma nova tarefa"
             type="submit"
             icon={<PlayCircleIcon />}
           />
-        ) : (
+        )}
+
+        {state.activeTask && (
           <DefaultButton
             aria-label="Interromper tarefa atual"
             title="Interromper tarefa atual"
             type="button"
             color="red"
             icon={<StopCircleIcon />}
+            onClick={handleInterruptTask}
           />
         )}
       </div>
